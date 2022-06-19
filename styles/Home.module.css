@@ -1,0 +1,9 @@
+
+@font-face {
+  font-family: 'HelveticaUltra';
+  src: url('../public/fonts/HelveticaUltraLt_0.ttf');
+}
+
+.fontHu{
+  font-family: HelveticaUltra , sans-serif;
+}
