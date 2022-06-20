@@ -32,14 +32,47 @@ export default function Home() {
         </nav>
         <div className='container d-flex flex-wrap align-content-center h-100'>
           <div>
-            <h1 className={styles.fontHu}>ESTÁGIO</h1>
-            <h2>PROVA DE SELEÇÃO</h2>
+            <h1 className={styles.fontHu + " display-1"}>ESTÁGIO</h1>
+            <h2 className='display-3'>PROVA DE SELEÇÃO</h2>
           </div>
         </div>
       </header>
-      <section className='bg-info'>
-        Section1
-      </section>
+
+      <section className='bg-info vh-100'>
+        <div className='container py-4'>
+          <h3 className='text-white text-center display-4'>CADASTRO</h3>
+          <div className='row'>
+            <div className='col-12 col-md-3'></div>
+            <div className='col-12 col-md-6'>
+              <form>
+                <div>
+                  <label className='text-white mt-4'>Nome</label>
+                  <input className='form-control' />
+                </div>
+                <div>
+                  <label className='text-white mt-4'>Email </label>
+                  <input className='form-control' />
+                </div>
+                <div>
+                  <label className='text-white mt-4'>Nascimento </label>
+                  <input className='form-control' />
+                </div>
+                <div>
+                  <label className='text-white mt-4'>Telefome </label>
+                  <input className='form-control' />
+                </div>
+              </form>
+            </div>
+            <div className='col-12 col-md-3'></div>
+          </div>
+          
+          <div className='text-center mt-4'>
+          <button className='btn btn-primary'>CADASTRAR</button>
+          </div>
+        </div>
+        
+    </section>
+
       <section>
         section2
       </section>
