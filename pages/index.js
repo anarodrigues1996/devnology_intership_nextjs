@@ -8,7 +8,7 @@ export default function Home() {
       <Head>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
       </Head>
-      <header className='vh-100'>
+      <header className='vh-100' id='home'>
         <nav className="navbar navbar-expand-sm position-absolute w-100">
 
           <div className="container">
@@ -18,13 +18,13 @@ export default function Home() {
             </a>
             <ul className="navbar-nav ml-auto">
               <li className="nav-item">
-                <a className="nav-link text-white" href="#">cadastro</a>
+                <a className="nav-link text-white" href="#signUp">cadastro</a>
               </li>
               <li className="nav-item">
-                <a className="nav-link text-white" href="#">lista</a>
+                <a className="nav-link text-white" href="#list">lista</a>
               </li>
               <li className="nav-item">
-                <a className="nav-link text-white" href="#">sobre mim</a>
+                <a className="nav-link text-white" href="#aboutme">sobre mim</a>
               </li>
             </ul>
           </div>
@@ -38,7 +38,7 @@ export default function Home() {
         </div>
       </header>
 
-      <section className='bg-info vh-100'>
+      <section className='bg-info vh-100' id='signUp'>
         <div className='container py-4'>
           <h3 className='text-white text-center display-4'>CADASTRO</h3>
           <div className='row'>
@@ -72,8 +72,8 @@ export default function Home() {
         </div>
       </section>
 
-      <section className='vh-100'>
-        <div className='container py-4'>
+      <section className='vh-100' id='list'>
+        <div className='container py-4 position-relative'>
           <h3 className='text-center display-4 text-info'>LISTA DE CADASTRO</h3>
           <div className='row'>
             <div className='col-12 col-md-2'></div>
@@ -95,12 +95,20 @@ export default function Home() {
                 </tr>
               </table>
             </div>
-            <div className='col-12 col-md-2'></div>
+            <div className='col-12 col-md-2'>
+              
+            </div>
+          </div>
+
+          <div className='position-absolute bottom-0 end-0'>
+            <a href='#home'>
+              <img src='/img/topo-pag.svg' width="32"/>
+            </a>
           </div>
 
         </div>
       </section>
-      <footer className='py-4'>
+      <footer className='py-4' id='aboutme'>
         <div className='text-center'>
           <p>Ana Sofia Fernandes Rodrigues</p>
           <p>anadira.dira@gmail.com</p>
