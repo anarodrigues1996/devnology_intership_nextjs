@@ -65,16 +65,40 @@ export default function Home() {
             </div>
             <div className='col-12 col-md-3'></div>
           </div>
-          
+
           <div className='text-center mt-4'>
-          <button className='btn btn-primary'>CADASTRAR</button>
+            <button className='btn btn-primary'>CADASTRAR</button>
           </div>
         </div>
-        
-    </section>
+      </section>
 
-      <section>
-        section2
+      <section className='vh-100'>
+        <div className='container py-4'>
+          <h3 className='text-center display-4 text-info'>LISTA DE CADASTRO</h3>
+          <div className='row'>
+            <div className='col-12 col-md-2'></div>
+            <div className='col-12 col-md-8'>
+              <table className="table mt-4">
+                <tr>
+                  <th></th>
+                  <th>Nome</th>
+                  <th>Email</th>
+                  <th>Nascimento</th>
+                  <th>Telefone</th>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+              </table>
+            </div>
+            <div className='col-12 col-md-2'></div>
+          </div>
+
+        </div>
       </section>
       <footer>
         Footer
