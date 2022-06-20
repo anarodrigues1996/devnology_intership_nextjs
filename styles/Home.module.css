@@ -1,13 +1,4 @@
 
-@font-face {
-  font-family: 'HelveticaUltra';
-  src: url('../public/fonts/HelveticaUltraLt_0.ttf');
-  font-weight: 100;
-}
-
 .fontHu{
-  /* font-family: HelveticaUltra, sans-serif;
-  font-weight: 100 !important; */
-
-  
+  font-family: HelveticaUltra , sans-serif;
 }

@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
@@ -10,7 +9,6 @@ export default function Home() {
       </Head>
       <header className='vh-100' id='home'>
         <nav className="navbar navbar-expand-sm position-absolute w-100">
-
           <div className="container">
 
             <a href="#">
@@ -32,34 +30,34 @@ export default function Home() {
         </nav>
         <div className='container d-flex flex-wrap align-content-center h-100'>
           <div>
-            <h1 className={styles.fontHu + " display-1"}>ESTÁGIO</h1>
-            <h2 className='display-3'>PROVA DE SELEÇÃO</h2>
+            <h1 className="display-1">ESTÁGIO</h1>
+            <h1 className='display-3'>PROVA DE SELEÇÃO</h1>
           </div>
         </div>
       </header>
 
       <section className='bg-info vh-100' id='signUp'>
         <div className='container py-4'>
-          <h3 className='text-white text-center display-4'>CADASTRO</h3>
+          <h1 className='text-white text-center display-4'>CADASTRO</h1>
           <div className='row'>
             <div className='col-12 col-md-3'></div>
             <div className='col-12 col-md-6'>
               <form>
                 <div>
                   <label className='text-white mt-4'>Nome</label>
-                  <input className='form-control' />
+                  <input className='form-control' type="text" />
                 </div>
                 <div>
                   <label className='text-white mt-4'>Email </label>
-                  <input className='form-control' />
+                  <input className='form-control' type="email" />
                 </div>
                 <div>
                   <label className='text-white mt-4'>Nascimento </label>
-                  <input className='form-control' />
+                  <input className='form-control' type="data" />
                 </div>
                 <div>
-                  <label className='text-white mt-4'>Telefome </label>
-                  <input className='form-control' />
+                  <label className='text-white mt-4'>Telefone </label>
+                  <input className='form-control' type="telephone" />
                 </div>
               </form>
             </div>
@@ -79,30 +77,34 @@ export default function Home() {
             <div className='col-12 col-md-2'></div>
             <div className='col-12 col-md-8'>
               <table className="table mt-4">
-                <tr>
-                  <th></th>
-                  <th>Nome</th>
-                  <th>Email</th>
-                  <th>Nascimento</th>
-                  <th>Telefone</th>
-                </tr>
-                <tr>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                </tr>
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th>Nome</th>
+                    <th>Email</th>
+                    <th>Nascimento</th>
+                    <th>Telefone</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                </tbody>
               </table>
             </div>
             <div className='col-12 col-md-2'>
-              
+
             </div>
           </div>
 
           <div className='position-absolute bottom-0 end-0'>
             <a href='#home'>
-              <img src='/img/topo-pag.svg' width="32"/>
+              <img src='/img/topo-pag.svg' width="32" />
             </a>
           </div>
 
