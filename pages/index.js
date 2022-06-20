@@ -100,8 +100,13 @@ export default function Home() {
 
         </div>
       </section>
-      <footer>
-        Footer
+      <footer className='py-4'>
+        <div className='text-center'>
+          <p>Ana Sofia Fernandes Rodrigues</p>
+          <p>anadira.dira@gmail.com</p>
+          <p>+238 986 17 39</p>
+          <p>DevNology</p>
+        </div>
       </footer>
 
     </main>

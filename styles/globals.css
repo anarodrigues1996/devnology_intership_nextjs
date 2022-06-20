@@ -30,3 +30,12 @@ input{
   border-bottom: 1px solid #fff !important;
   border-radius: 0px !important;
 }
+
+footer{
+  background-image: url("/img/rodape-desktop.jpg"); 
+  background-position: center; 
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  color: #fff;
+}
