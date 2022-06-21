@@ -20,11 +20,11 @@
 }
 
 h1{
-  font-family: HelveticaUltra;
+  font-family: 'Helvetica 25 UltraLight', HelveticaUltra, sans-serif;
 }
 
 h3{
-  font-family: HelveticaUltra;
+  font-family: 'Helvetica 25 UltraLight', HelveticaUltra, sans-serif;
 } 
 
 label{
@@ -68,7 +68,7 @@ footer{
 
 button{
   background-color: #012d51 !important;
-  font-family: HelveticaUltra;
+  font-family: 'Helvetica 25 UltraLight', HelveticaUltra, sans-serif;
   font-size: 25;
   color: #29abe2 !important;
   border-radius: 0 !important;
