@@ -1,28 +1,25 @@
 import { useState, useEffect } from 'react'
 
 function SignUp(){
-    const internValues = {
-      name: '',
-      email: '',
-      phone: null,
-      birthday: null
-    }
-  const [formValues, setFormValues,] = useState(internValues)
-  
+
+  const [values, setValues] = useState({
+  })
+
   const [formErrors, setFormErrors,] = useState({});
 
   const [isSubmit, setIsSubmit,] = useState(false);   
 
   const handleChange =(e)=>{
-   const {name, value}= e.target;
 
-   setFormValues({...formValues, [name]: value})
+   setValues({
+    ...values, 
+    [e.target.name]: e.target.value})
 
   }
 
   const handleSubmit = (e) =>{
      e.preventDefault();
-     setFormErrors(validate(formValues));
+     setFormErrors(validate(values));
      setIsSubmit(true);
   }
 
@@ -52,52 +49,61 @@ function SignUp(){
 
     return errors;
   }
+
  useEffect(() => {
     console.log(formErrors)
     if(Object.keys(formErrors).length === 0 && isSubmit){
-      console.log(formValues)
+      console.log(values)
     }
-  }, [formErrors])
+  }, [formErrors]);
+
+  const getIternShip = async()=>{
+      try{
+          const data = await fetch('http://127.0.0.1:3333/api/internship')
+          const json =await data.json();
+          console.log(json)
+      }catch(e){
+        console.log(e.messege)
+      }
+  }
 
 
-  return (<section className='bg-info vh-100' id='signUp'>
+  return (<section className='bg-info' id='signUp'>
       <div className='container py-4'>
         <h1 className='text-white text-center display-4'>CADASTRO</h1>
         <div className='row'>
           <div className='col-12 col-md-3'></div>
           <div className='col-12 col-md-6'>
-            <form >
+            <form onSubmit={handleSubmit} id="form1">
               <div>
+                {formErrors.name && <p className='error'>{formErrors.name}</p>}
                 <label className='text-white mt-4'>Nome</label>
-                <p>{formErrors.name}</p>
-                <input className='form-control' type="text" value= {formValues.name} onChange={handleChange} />
+                <input className='form-control' type="text" value={values.name} onChange={handleChange} />
               </div>
              
               <div>
-              
+              {formErrors.email && <p className='error'>{formErrors.email}</p>}
                 <label className='text-white mt-4'>Email </label>
-                <p>{formErrors.email}</p>
-                <input className='form-control' type="email"  value= {formValues.email} onChange={handleChange}/>
+                <input className='form-control' type="email"  value={values.email} onChange={handleChange}/>
               </div>
               
               <div>
-              
+              {formErrors.birthday && <p className='error'>{formErrors.birthday}</p>}
                 <label className='text-white mt-4'>Nascimento </label>
-                <p>{formErrors.birthday}</p>
-                <input className='form-control' type="date" value= {formValues.birthday} onChange={handleChange}/>
+                <input className='form-control' type="date" value={values.birthday} onChange={handleChange}/>
               </div>
              
               <div>
+              {formErrors.phone && <p className='error'>{formErrors.phone}</p>}
                 <label className='text-white mt-4'>Telefone </label>
-                <p>{formErrors.phone}</p>
-                <input className='form-control' type="number" value= {formValues.phone} onChange={handleChange}/>
+                <input className='form-control' type="number" value={values.phone} onChange={handleChange}/>
               </div>
             </form>
           </div>
           <div className='col-12 col-md-3'></div>
         </div>
         <div className='text-center mt-4'>
-          <button className='btn btn-primary' onClick={handleSubmit}>CADASTRAR</button>
+          <button className='btn btn-primary' type='submit' form='form1'>CADASTRAR</button>
         </div>
       </div>
     </section>)

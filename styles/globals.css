@@ -57,6 +57,11 @@ input{
   color: #fff !important;
 }
 
+#signUp{
+  min-height: 100vh !important;
+  /* overflow-y: auto; */
+}
+
 footer{
   background-image: url("/img/rodape-desktop.jpg"); 
   background-position: center; 
