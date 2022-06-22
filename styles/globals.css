@@ -135,4 +135,12 @@ td{
     height: 40vh;
   }
 
+  header{
+    background-image: url("/img/index-image-mobile.jpg");
+  }
+
+  footer{
+    background-image: url("/img/rodape-mobile.jpg"); 
+  }
+
 }

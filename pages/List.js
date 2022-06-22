@@ -29,6 +29,7 @@ export default function List() {
           <div className='row'>
             <div className='col-12 col-md-2'></div>
             <div className='col-12 col-md-8'>
+              <div className='table-responsive'>
               <table className="table mt-4">
                 <thead>
                   <tr>
@@ -51,6 +52,7 @@ export default function List() {
                 )}                  
                 </tbody>
               </table>
+              </div>
             </div>
             <div className='col-12 col-md-2'>
 
