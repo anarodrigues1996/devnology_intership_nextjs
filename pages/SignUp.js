@@ -51,22 +51,11 @@ function SignUp(){
   }
 
  useEffect(() => {
-    console.log(formErrors)
+    //console.log(formErrors)
     if(Object.keys(formErrors).length === 0 && isSubmit){
-      console.log(values)
+      //console.log(values)
     }
   }, [formErrors]);
-
-  const getIternShip = async()=>{
-      try{
-          const data = await fetch('http://127.0.0.1:3333/api/internship')
-          const json =await data.json();
-          console.log(json)
-      }catch(e){
-        console.log(e.messege)
-      }
-  }
-
 
   return (<section className='bg-info' id='signUp'>
       <div className='container py-4'>
@@ -76,27 +65,27 @@ function SignUp(){
           <div className='col-12 col-md-6'>
             <form onSubmit={handleSubmit} id="form1">
               <div>
-                {formErrors.name && <p className='error'>{formErrors.name}</p>}
-                <label className='text-white mt-4'>Nome</label>
-                <input className='form-control' type="text" value={values.name} onChange={handleChange} />
+                {formErrors.name && <p className='text-danger'>{formErrors.name}</p>}
+                <label className='text-white'>Nome</label>
+                <input className='form-control mb-4' type="text" value={values.name} onChange={handleChange} />
               </div>
              
               <div>
-              {formErrors.email && <p className='error'>{formErrors.email}</p>}
-                <label className='text-white mt-4'>Email </label>
-                <input className='form-control' type="email"  value={values.email} onChange={handleChange}/>
+              {formErrors.email && <p className='text-danger'>{formErrors.email}</p>}
+                <label className='text-white'>Email </label>
+                <input className='form-control mb-4' type="email"  value={values.email} onChange={handleChange}/>
               </div>
               
               <div>
-              {formErrors.birthday && <p className='error'>{formErrors.birthday}</p>}
-                <label className='text-white mt-4'>Nascimento </label>
-                <input className='form-control' type="date" value={values.birthday} onChange={handleChange}/>
+              {formErrors.birthday && <p className='text-danger'>{formErrors.birthday}</p>}
+                <label className='text-white'>Nascimento </label>
+                <input className='form-control mb-4' type="date" value={values.birthday} onChange={handleChange}/>
               </div>
              
               <div>
-              {formErrors.phone && <p className='error'>{formErrors.phone}</p>}
-                <label className='text-white mt-4'>Telefone </label>
-                <input className='form-control' type="number" value={values.phone} onChange={handleChange}/>
+              {formErrors.phone && <p className='text-danger'>{formErrors.phone}</p>}
+                <label className='text-white'>Telefone </label>
+                <input className='form-control mb-4' type="number" value={values.phone} onChange={handleChange}/>
               </div>
             </form>
           </div>

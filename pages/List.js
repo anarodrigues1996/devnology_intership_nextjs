@@ -1,8 +1,29 @@
+import { useState, useEffect } from 'react'
 
-export default function List(){
-    return(
-        <div>
-            <section className='vh-100' id='list'>
+export default function List() {
+
+  const [interns, setInterns] = useState([])
+
+  useEffect(() => {
+
+    getInternShip();
+
+  }, []);
+
+  async function getInternShip(){
+    try {
+      const data = await fetch('http://127.0.0.1:3333/api/internship')
+      const json = await data.json()
+      console.log(json)
+      setInterns(json)
+    } catch (e) {
+      console.log(e.messege)
+    }
+  }
+
+  return (
+    <div>
+      <section className='vh-100' id='list'>
         <div className='container py-4 position-relative'>
           <h3 className='text-center display-4 text-info'>LISTA DE CADASTRO</h3>
           <div className='row'>
@@ -19,13 +40,15 @@ export default function List(){
                   </tr>
                 </thead>
                 <tbody>
+                {interns.map((intern) => 
                   <tr>
                     <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td>{intern.name}</td>
+                    <td>{intern.email}</td>
+                    <td>{intern.birthday}</td>
+                    <td>{intern.phone}</td>
                   </tr>
+                )}                  
                 </tbody>
               </table>
             </div>
@@ -42,6 +65,6 @@ export default function List(){
 
         </div>
       </section>
-        </div>
-    )
+    </div>
+  )
 }
