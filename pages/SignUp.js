@@ -2,52 +2,81 @@ import { useState, useEffect } from 'react'
 
 function SignUp(){
 
-  const [values, setValues] = useState({
-  })
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [birthday, setBirthday] = useState("");
 
   const [formErrors, setFormErrors,] = useState({});
 
   const [isSubmit, setIsSubmit,] = useState(false);   
 
-  const handleChange =(e)=>{
-
-   setValues({
-    ...values, 
-    [e.target.name]: e.target.value})
-
-  }
-
   const handleSubmit = (e) =>{
      e.preventDefault();
-     setFormErrors(validate(values));
-     setIsSubmit(true);
-  }
+     
+     //setIsSubmit(true);
 
-  const validate = (values)=>{
     const errors ={};
     const regex = "/^[a-zA-Z0-9.! #$%&'*+/=? ^_`{|}~-]+@[a-zA-Z0-9-]+(?:\. [a-zA-Z0-9-]+)*$/";
 
-    if(!values.name){
+    if(!name){
       errors.name='Campo nome Obrigatorio';
+      setFormErrors(errors);
+      return;
     }
 
-    if(!values.email){
-      errors.email='Campo email Obrigatorio';
+    if(!email){
+      errors.email='Campo email Obrigatorio'
+      setFormErrors(errors);
+      return;
     }else{
-      if(!regex.test(values.email)){
-        errors.email='Forato invalido'
-      }
+      // if(!regex.match(email)){
+      //   errors.email='Formato invalido'
+      //   setFormErrors(errors);
+      //   return;
+      // }
     }
 
-    if(!values.birthday){
+    if(!birthday){
       errors.birthday='Campo nascimento Obrigatorio';
+      setFormErrors(errors);
+      return;
     }
 
-    if(!values.phone){
+    if(!phone){
       errors.phone='Campo telefone  Obrigatorio';
+      setFormErrors(errors);
+      return;
     }
+    
+    setFormErrors({});
+    sendData();
+  }
 
-    return errors;
+  async function sendData() {
+
+    const rawResponse = await fetch('http://127.0.0.1:3333/api/internship', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        name: name,
+        email: email,
+        phone: phone,
+        birthday: birthday
+      })
+    });
+    const content = await rawResponse.json();
+    console.log(content);
+
+    setName('')
+    setEmail('')
+    setPhone('')
+    setBirthday('')
+
+    // setValues({});
   }
 
  useEffect(() => {
@@ -67,25 +96,25 @@ function SignUp(){
               <div>
                 {formErrors.name && <p className='text-danger'>{formErrors.name}</p>}
                 <label className='text-white'>Nome</label>
-                <input className='form-control mb-4' type="text" value={values.name} onChange={handleChange} />
+                <input className='form-control mb-4' type="text" value={name} onChange={(e) => setName(e.target.value)} />
               </div>
              
               <div>
               {formErrors.email && <p className='text-danger'>{formErrors.email}</p>}
                 <label className='text-white'>Email </label>
-                <input className='form-control mb-4' type="email"  value={values.email} onChange={handleChange}/>
+                <input className='form-control mb-4' type="email"  value={email} onChange={(e) => setEmail(e.target.value)}/>
               </div>
               
               <div>
               {formErrors.birthday && <p className='text-danger'>{formErrors.birthday}</p>}
                 <label className='text-white'>Nascimento </label>
-                <input className='form-control mb-4' type="date" value={values.birthday} onChange={handleChange}/>
+                <input className='form-control mb-4' type="date" value={birthday} onChange={(e) => setBirthday(e.target.value)}/>
               </div>
              
               <div>
               {formErrors.phone && <p className='text-danger'>{formErrors.phone}</p>}
                 <label className='text-white'>Telefone </label>
-                <input className='form-control mb-4' type="number" value={values.phone} onChange={handleChange}/>
+                <input className='form-control mb-4' type="tel" value={phone} onChange={(e) => setPhone(e.target.value)}/>
               </div>
             </form>
           </div>

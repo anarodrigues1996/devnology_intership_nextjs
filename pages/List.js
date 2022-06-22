@@ -41,11 +41,11 @@ export default function List() {
                 </thead>
                 <tbody>
                 {interns.map((intern) => 
-                  <tr>
-                    <td></td>
+                  <tr key={intern.id}>
+                    <td>{intern.id}</td>
                     <td>{intern.name}</td>
                     <td>{intern.email}</td>
-                    <td>{intern.birthday}</td>
+                    <td>{intern.birthday.substring(0, 10)}</td>
                     <td>{intern.phone}</td>
                   </tr>
                 )}                  
