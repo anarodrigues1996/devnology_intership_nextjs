@@ -1,15 +1,64 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 function SignUp(){
+    const internValues = {
+      name: '',
+      email: '',
+      phone: null,
+      birthday: null
+    }
+  const [formValues, setFormValues,] = useState(internValues)
+  
+  const [formErrors, setFormErrors,] = useState({});
 
-  const [name, setName] = useState("")
-  const [email, setEmail] = useState("")
-  const [phone, setPhone] = useState("")
-  const [birthday, setBirthday] = useState("")
+  const [isSubmit, setIsSubmit,] = useState(false);   
 
-  const shoot = () => {
-    alert("Cadastro feito! " + name +" " + email + " " +birthday+ " " +phone )
+  const handleChange =(e)=>{
+   const {name, value}= e.target;
+
+   setFormValues({...formValues, [name]: value})
+
   }
+
+  const handleSubmit = (e) =>{
+     e.preventDefault();
+     setFormErrors(validate(formValues));
+     setIsSubmit(true);
+  }
+
+  const validate = (values)=>{
+    const errors ={};
+    const regex = "/^[a-zA-Z0-9.! #$%&'*+/=? ^_`{|}~-]+@[a-zA-Z0-9-]+(?:\. [a-zA-Z0-9-]+)*$/";
+
+    if(!values.name){
+      errors.name='Campo nome Obrigatorio';
+    }
+
+    if(!values.email){
+      errors.email='Campo email Obrigatorio';
+    }else{
+      if(!regex.test(values.email)){
+        errors.email='Forato invalido'
+      }
+    }
+
+    if(!values.birthday){
+      errors.birthday='Campo nascimento Obrigatorio';
+    }
+
+    if(!values.phone){
+      errors.phone='Campo telefone  Obrigatorio';
+    }
+
+    return errors;
+  }
+ useEffect(() => {
+    console.log(formErrors)
+    if(Object.keys(formErrors).length === 0 && isSubmit){
+      console.log(formValues)
+    }
+  }, [formErrors])
+
 
   return (<section className='bg-info vh-100' id='signUp'>
       <div className='container py-4'>
@@ -17,29 +66,38 @@ function SignUp(){
         <div className='row'>
           <div className='col-12 col-md-3'></div>
           <div className='col-12 col-md-6'>
-            <form>
+            <form >
               <div>
                 <label className='text-white mt-4'>Nome</label>
-                <input className='form-control' type="text" onChange={(e) => setName(e.target.value)} />
+                <p>{formErrors.name}</p>
+                <input className='form-control' type="text" value= {formValues.name} onChange={handleChange} />
               </div>
+             
               <div>
+              
                 <label className='text-white mt-4'>Email </label>
-                <input className='form-control' type="email"  onChange={(e) => setEmail(e.target.value)}/>
+                <p>{formErrors.email}</p>
+                <input className='form-control' type="email"  value= {formValues.email} onChange={handleChange}/>
               </div>
+              
               <div>
+              
                 <label className='text-white mt-4'>Nascimento </label>
-                <input className='form-control' type="date"  onChange={(e) => setBirthday(e.target.value)}/>
+                <p>{formErrors.birthday}</p>
+                <input className='form-control' type="date" value= {formValues.birthday} onChange={handleChange}/>
               </div>
+             
               <div>
                 <label className='text-white mt-4'>Telefone </label>
-                <input className='form-control' type="number"  onChange={(e) => setPhone(e.target.value)}/>
+                <p>{formErrors.phone}</p>
+                <input className='form-control' type="number" value= {formValues.phone} onChange={handleChange}/>
               </div>
             </form>
           </div>
           <div className='col-12 col-md-3'></div>
         </div>
         <div className='text-center mt-4'>
-          <button className='btn btn-primary' onClick={shoot}>CADASTRAR</button>
+          <button className='btn btn-primary' onClick={handleSubmit}>CADASTRAR</button>
         </div>
       </div>
     </section>)
