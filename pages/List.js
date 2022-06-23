@@ -23,7 +23,7 @@ export default function List() {
 
   return (
     <div>
-      <section className='vh-100' id='list'>
+      <section id='list'>
         <div className='container py-4 position-relative'>
           <h3 className='text-center display-4 text-info'>LISTA DE CADASTRO</h3>
           <div className='row'>
